@@ -81,7 +81,7 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 24px;
   color: #F3F3F3;
   line-height: 28px;
 }
@@ -101,7 +101,7 @@ a {
 
 .white-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #FFF;
 }
 
 .gray {
@@ -126,6 +126,19 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 0;
+}
+
+.flex-box-vert {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.flex-box-vert > li {
+  margin: 5px 0;
 }
 
 .center-content {

@@ -8,8 +8,8 @@ var bio  = {
     "phone" : "+1 716 359-3586",
   },
   "picture" : "images/sean.png",
-  "welcomeMessage" : "I am an experienced geospatial engineer and developer",
-  "skills" : ["Product Management", "GIS", "front end programming"]
+  "welcomeMessage" : "Experienced Geospatial Engineer and Developer",
+  "skills" : ["Product Management", "Geographic Information Systems", "Front End Programming"]
 };
 
 var formattedName = HTMLheaderName.replace("%data%",bio.name);

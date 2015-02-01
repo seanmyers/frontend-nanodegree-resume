@@ -47,16 +47,13 @@ var work = {
       "employer": "NBT Solutions",
       "title": "Co-Founder",
       "dates": "January 2009 - Present",
-      "description": "Co-Founder of a geospatial engineering and application
-      development company. Currently NBT Solutions has 10 employees and offices
-      in Buffalo, NY and Portland, ME."
+      "description": "Co-Founder of a geospatial engineering and application development company. Currently NBT Solutions has 10 employees and offices in Buffalo, NY and Portland, ME."
     },
     {
       "employer": "CDM Smith",
       "title": "Geospatial Engineer",
       "dates": "April 2002 - January 2009",
-      "description": "Resonsible for the design and implementation of municipal
-      and utility GIS projects"
+      "description": "Resonsible for the design and implementation of municipal and utility GIS projects"
     }
   ]
 }
@@ -66,8 +63,7 @@ var projects = {
     {
       "title": "VETRO FiberMap",
       "dates": "2015",
-      "description": "SaaS application that supports the marketing, planning,
-      and management of broadband networks",
+      "description": "SaaS application that supports the marketing, planning, and management of broadband networks",
       "images": [
         "https://s3.amazonaws.com/Myers/ProjectImages/DemandGen.png",
         "https://s3.amazonaws.com/Myers/ProjectImages/NetView.png"
@@ -94,7 +90,7 @@ $("#topContacts").append(formattedTwitter);
 $("#topContacts").append(formattedGithub);
 
 
-/* if (bio.skills.length > 0) {
+if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 };
 
@@ -103,6 +99,6 @@ for (i = 0; i < bio.skills.length; i++) {
   $("#skills").append(formattedSkills);
 };
 
-*/
+
 
 

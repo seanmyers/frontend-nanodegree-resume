@@ -62,6 +62,11 @@ var googleMap = '<div id="map"></div>';
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
+
+/* the variable name probably comes from an input form. For now I assigned my
+ * namem to the var 'name' */
+
+var name = "sean myers"
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName(name) || function(){};
@@ -86,7 +91,7 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   var x = loc.pageX;
-  var y = loc.Pagey;
+  var y = loc.pageY;
 
   logClicks(x,y);
   // your code goes here!

@@ -85,6 +85,10 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.Pagey;
+
+  logClicks(x,y);
   // your code goes here!
 });
 

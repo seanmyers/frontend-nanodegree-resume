@@ -81,10 +81,10 @@ var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
 var formattedGithub = HTMLgithub.replace("%data%",bio.contactInfo.github);
 
 
-$("#header").prepend(formattedMessage);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").prepend(formattedPicture);
+$("#header").append(formattedMessage);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedTwitter);
 $("#topContacts").append(formattedGithub);
@@ -100,5 +100,21 @@ for (i = 0; i < bio.skills.length; i++) {
 };
 
 
+/* create a loop to input the jobs */
 
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
 
+  var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+  var combinedJob = formattedEmployer + formattedTitle;
+  $(".work-entry:last").append(combinedJob);
+
+  var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+  $(".work-entry:last").append(formattedDates);
+
+  var formattedDescription =
+  HTMLworkDescription.replace("%data%",work.jobs[job].description);
+  $(".work-entry:last").append(formattedDescription);
+
+}; /* end for loop */

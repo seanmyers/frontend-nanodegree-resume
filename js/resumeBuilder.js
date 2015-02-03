@@ -69,7 +69,23 @@ var projects = {
         "https://s3.amazonaws.com/Myers/ProjectImages/NetView.png"
       ]
     }
-  ]
+  ],
+  display: function() {
+
+    for (i = 0; i < projects.projects.length; i++) {
+      $("#projects").append(HTMLprojectStart);
+
+      var formattedTitle = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
+      $(".project-entry:last").append(formattedTitle);
+
+      var formattedDate = HTMLworkDates.replace("%data%",projects.projects[i].dates);
+      $(".project-entry:last").append(formattedDate);
+
+      var formattedDescription = HTMLworkDescription.replace("%data%",projects.projects[i].description);
+      $(".project-entry:last").append(formattedDescription);
+
+    } /* end for loop */
+  }
 }
 
 var formattedName = HTMLheaderName.replace("%data%",bio.name);
@@ -123,6 +139,8 @@ function displayWork() {
 }; /* end function displayWork */
 
 displayWork();
+
+projects.display();
 
 /* Button that initializes a script to capitalize the last name of a person's
  * full name */

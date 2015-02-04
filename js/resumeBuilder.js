@@ -1,11 +1,12 @@
 var bio  = {
   "name": "Sean Myers",
   "role": "Co-Founder NBT Solutions LLC",
-  "contactInfo": {
+  "contacts": {
     "email": "sean.myers@nbtsolutions.com",
     "twitter": "@seandmyers",
     "github": "http://github.com/seanmyers",
-    "phone": "+1 716 359-3586"
+    "phone": "+1 716 359-3586",
+    "location": "Buffalo, NY"
   },
   "picture": "images/sean.png",
   "welcomeMessage": "Experienced Geospatial Engineer and Developer",
@@ -16,7 +17,7 @@ var education = {
   "schools": [
     {
       "name": "College of Environmental Science and Forestry",
-      "city": "Syracuse, NY",
+      "location": "Syracuse, NY",
       "degree": "B.S.",
       "majors": ["Environmental Science"],
       "dates": "1986",
@@ -24,7 +25,7 @@ var education = {
     },
     {
       "name": "University of New Hampshire",
-      "city": "Durham, NH",
+      "location": "Durham, NH",
       "degree": "M.S.",
       "majors": "Environmental Administration and Management",
       "dates": "1992",
@@ -47,13 +48,17 @@ var work = {
       "employer": "NBT Solutions",
       "title": "Co-Founder",
       "dates": "January 2009 - Present",
-      "description": "Co-Founder of a geospatial engineering and application development company. Currently NBT Solutions has 10 employees and offices in Buffalo, NY and Portland, ME."
+      "description": "Co-Founder of a geospatial engineering and application \
+      development company. Currently NBT Solutions has 10 employees and \
+      offices in Buffalo, NY and Portland, ME.",
+      "location": "Portland, ME"
     },
     {
       "employer": "CDM Smith",
       "title": "Geospatial Engineer",
       "dates": "April 2002 - January 2009",
-      "description": "Resonsible for the design and implementation of municipal and utility GIS projects"
+      "description": "Resonsible for the design and implementation of municipal and utility GIS projects",
+      "locaton": "Manchester, NY"
     }
   ]
 }
@@ -90,11 +95,11 @@ var projects = {
 
 var formattedName = HTMLheaderName.replace("%data%",bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedEmail = HTMLemail.replace("%data%",bio.contactInfo.email);
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
 var formattedPicture = HTMLbioPic.replace("%data%",bio.picture);
 var formattedMessage = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-var formattedTwitter = HTMLtwitter.replace("%data%",bio.contactInfo.twitter);
-var formattedGithub = HTMLgithub.replace("%data%",bio.contactInfo.github);
+var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 
 
 $("#header").prepend(formattedRole);
@@ -141,6 +146,9 @@ function displayWork() {
 displayWork();
 
 projects.display();
+
+/* add the map */
+$("#mapDiv").append(googleMap);
 
 /* Button that initializes a script to capitalize the last name of a person's
  * full name */

@@ -8,10 +8,38 @@ var bio  = {
     "phone": "+1 716 359-3586",
     "location": "Buffalo, NY"
   },
-  "picture": "images/sean.png",
+  "biopic": "images/sean.png",
   "welcomeMessage": "Experienced Geospatial Engineer and Developer",
-  "skills": ["Product Management", "Geographic Information Systems", "Front End Programming"]
-}
+  "skills": ["Product Management", "Geographic Information Systems", "Front \
+    End Programming"],
+
+  display: function() {
+    var formattedName = HTMLheaderName.replace("%data%",bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+    var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+    var formattedPicture = HTMLbioPic.replace("%data%",bio.biopic);
+    var formattedMessage = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+    var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+    var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
+    $("#header").prepend(formattedPicture);
+    $("#header").append(formattedMessage);
+    $("#topContacts").append(formattedEmail);
+    $("#topContacts").append(formattedTwitter);
+    $("#topContacts").append(formattedGithub);
+
+    if (bio.skills.length > 0) {
+      $("#header").append(HTMLskillsStart);
+    };
+
+    for (i = 0; i < bio.skills.length; i++) {
+      var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+      $("#skills").append(formattedSkills);
+    }; /* for loop */
+  } /* function display */
+} /* BIO OBJECT */
 
 var education = {
   "schools": [
@@ -27,10 +55,10 @@ var education = {
       "name": "University of New Hampshire",
       "location": "Durham, NH",
       "degree": "M.S.",
-      "majors": "Environmental Administration and Management",
+      "majors": ["Environmental Administration and Management"],
       "dates": "1992",
       "url": "http://www.unh.edu"
-    }
+    },
   ],
   "onlineCourses": [
     {
@@ -39,8 +67,33 @@ var education = {
       "dates": "2015",
       "url": "http://www.udacity.com/nanodegree"
     }
-  ]
-}
+  ],
+  display: function() {
+    console.log(education.schools.length);
+    for (i = 0; i < education.schools.length; i++) {
+      $("#education").append(HTMLschoolStart);
+
+      var formattedSchool = HTMLschoolName.replace("%data%",education.schools[i].name);
+      var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
+      var formattedSchoolDegree = formattedSchool.replace("#",education.schools[i].url) + formattedDegree;
+      $(".education-entry:last").append(formattedSchoolDegree);
+
+      var formattedDate = HTMLschoolDates.replace("%data%",education.schools[i].dates);
+      $(".education-entry:last").append(formattedDate);
+
+
+      var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+      $(".education-entry:last").append(formattedLocation);
+
+      for (j = 0; j < education.schools[i].majors.length; j++) {
+        var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[i].majors[j]);
+        $(".education-entry:last").append(formattedMajor);
+      };
+
+
+    }; /* for loop */
+  } /* function */
+} /* SCHOOL OBJECT */
 
 var work = {
   "jobs": [
@@ -93,32 +146,12 @@ var projects = {
   }
 }
 
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-var formattedPicture = HTMLbioPic.replace("%data%",bio.picture);
-var formattedMessage = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+/* DISPLAY THE RESUME INFORMATION */
+
+bio.display();
+education.display();
 
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedPicture);
-$("#header").append(formattedMessage);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedGithub);
-
-
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-};
-
-for (i = 0; i < bio.skills.length; i++) {
-  var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
-  $("#skills").append(formattedSkills);
-};
 
 
 /* create a loop to input the jobs */

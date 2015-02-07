@@ -70,7 +70,6 @@ var education = {
   ],
 
   display: function() {
-    console.log(education.schools.length);
     for (i = 0; i < education.schools.length; i++) {
       $("#education").append(HTMLschoolStart);
 
@@ -125,7 +124,7 @@ var work = {
       "title": "Geospatial Engineer",
       "dates": "April 2002 - January 2009",
       "description": "Resonsible for the design and implementation of municipal and utility GIS projects",
-      "locaton": "Manchester, NY"
+      "location": "Manchester, NH"
     }
   ],
 
